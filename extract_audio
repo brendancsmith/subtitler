@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# the first argument will be an mp4 file
+input_file="$1"
+
+# extract the filename without the extension
+basename="${input_file%.*}"
+
+# transform it to a mp3 filename in the same directory
+output_file="${basename}.mp3"
+
+# use ffmpeg to convert the mp4 file to an mp3 file
+ffmpeg -i "$input_file" -q:a 0 "$output_file"
